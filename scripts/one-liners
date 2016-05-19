@@ -1,0 +1,8 @@
+Counts the size of psd files over 30 days old:
+	find . -name '*.psd' -mtime +30 -exec du -ak {} \; | colrm 7| awk '{ sum += $1 } END { print sum }'
+	
+Remove 30 day old psd files:
+	find . -name '*.psd' -mtime +30 -exec rm {} \;
+
+find the siz of all .tmp files over 5 days old
+  find . -name '*.tmp' -mtime +5 -exec du -ak {} \; | colrm 7| awk '{ sum += $1 } END { print sum }'
