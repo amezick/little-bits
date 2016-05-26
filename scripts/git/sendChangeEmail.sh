@@ -11,6 +11,6 @@ echo ' '>>git.mail
 echo ' '>>git.mail
 git diff $PREV_TAG $CURRENT_TAG>>git.mail
 
-mail -s "Changes for $CURRENT_TAG" -r [FROM_EMAIL] [TO_EMAIL]<git.mail
+mail -s "BUILD: Changes for $CURRENT_TAG prepped" -r [FROM_EMAIL] [TO_EMAIL]<git.mail
 rm -f git.mail
 cd ..
