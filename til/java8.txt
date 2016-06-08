@@ -1,0 +1,8 @@
+Some quick notes of things I learned while going through a Java8 tutorial.
+
+-- List.stream() is not null safe. If your list allows null object, the stream() method will happily toss a null object down the stream.
+This tossed a NPE:
+List<Thread> threads = [long winded code to get current thread group];
+threads.stream().map(thread -> thread.getName()).[OTHER STUFF].count();
+Here is the fix:
+threads.stream().filter(Objects::nonNull).map(thread -> thread.getName()).[OTHER STUFF].count();
